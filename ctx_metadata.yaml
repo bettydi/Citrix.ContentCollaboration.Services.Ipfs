@@ -1,0 +1,15 @@
+# This file provides generic source code/repo metadata used by tooling
+# within Citrix to assign owners, names, settings and more.
+#    For more info: https://info.citrite.net/display/AIL/Repo+Metadata+User+Guide
+metadataVersion: 0.1
+ 
+default:                            
+  type: Service (Cloud)             # required, what's the primary type of thing produced by this source tree?
+  owner: bettydi                    # required, primary contact and technical owner of source tree. This should be your citrite id instead of email address.
+  productionUse: CustomerCurrent    # required, is this code used for customer products, only internally, or what?
+  pipeline:                         # pipeline section is not required for types: documentation, tests
+    citool: jenkins                 ## required, type of CI tool used for builds
+    releaseBranch: release
+  reporting:
+    teamName: coco 
+    product: Content Collaboration

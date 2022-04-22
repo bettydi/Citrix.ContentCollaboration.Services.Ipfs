@@ -1,0 +1,11 @@
+[
+  {
+    "FileName": "appsettings.json"
+  },
+  {
+    "FileName": "appsettings.env.json"
+  },
+  {
+    "FileName": "appsettings.env.local.json"
+  }
+]

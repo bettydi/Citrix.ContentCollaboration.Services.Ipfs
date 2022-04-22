@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2006
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B55126CE-9614-4C27-8160-3F74094BC3C7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{194EF772-B8CF-426E-BB5E-528CD0694C33}"
+	ProjectSection(SolutionItems) = preProject
+		Dockerfile = Dockerfile
+		GitVersion.yml = GitVersion.yml
+		Jenkinsfile = Jenkinsfile
+		pipeline.yaml = pipeline.yaml
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ipfs", "src\Ipfs\Citrix.ContentCollaboration.Services.Ipfs.csproj", "{9ECDD3F3-0B57-4AB4-B0B3-E9AFE0C1FD3C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E94938B8-04B4-42D4-A64B-7A7CFC2F1B7D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ipfs.IntegrationTests", "tests\Ipfs.IntegrationTests\Citrix.ContentCollaboration.Services.Ipfs.IntegrationTests.csproj", "{1F1563FE-5CE0-4802-9FF2-44C2F9945F4A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ipfs.UnitTests", "tests\Ipfs.UnitTests\Citrix.ContentCollaboration.Services.Ipfs.UnitTests.csproj", "{EE939E62-7F9A-471F-90D6-082B577469C6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9ECDD3F3-0B57-4AB4-B0B3-E9AFE0C1FD3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ECDD3F3-0B57-4AB4-B0B3-E9AFE0C1FD3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ECDD3F3-0B57-4AB4-B0B3-E9AFE0C1FD3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ECDD3F3-0B57-4AB4-B0B3-E9AFE0C1FD3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F1563FE-5CE0-4802-9FF2-44C2F9945F4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F1563FE-5CE0-4802-9FF2-44C2F9945F4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F1563FE-5CE0-4802-9FF2-44C2F9945F4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F1563FE-5CE0-4802-9FF2-44C2F9945F4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE939E62-7F9A-471F-90D6-082B577469C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE939E62-7F9A-471F-90D6-082B577469C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE939E62-7F9A-471F-90D6-082B577469C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE939E62-7F9A-471F-90D6-082B577469C6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9ECDD3F3-0B57-4AB4-B0B3-E9AFE0C1FD3C} = {B55126CE-9614-4C27-8160-3F74094BC3C7}
+		{1F1563FE-5CE0-4802-9FF2-44C2F9945F4A} = {E94938B8-04B4-42D4-A64B-7A7CFC2F1B7D}
+		{EE939E62-7F9A-471F-90D6-082B577469C6} = {E94938B8-04B4-42D4-A64B-7A7CFC2F1B7D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4C895959-2153-4ED9-930B-CD9667243E75}
+	EndGlobalSection
+EndGlobal

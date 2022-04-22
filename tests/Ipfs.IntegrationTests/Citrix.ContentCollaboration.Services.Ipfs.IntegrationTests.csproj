@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>8.0</LangVersion>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\.xml</DocumentationFile>
+    <ProjectGuid>{0307FFAD-70AD-43DF-BF71-0CABA700A312}</ProjectGuid>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="config\" />
+    <Content Include="..\..\src\Ipfs\config\appsettings.env.json" Link="config\appsettings.env.json" />
+    <Content Include="..\..\src\Ipfs\config\appsettings.env.local.json" Link="config\appsettings.env.local.json" />
+    <Content Include="..\..\src\Ipfs\config\appsettings.json" Link="config\appsettings.json" />
+    <Content Include="..\..\src\Ipfs\config\configorder.json" Link="config\configorder.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="3.1.15" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.10.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Ipfs\Citrix.ContentCollaboration.Services.Ipfs.csproj" />
+  </ItemGroup>
+  
+</Project>

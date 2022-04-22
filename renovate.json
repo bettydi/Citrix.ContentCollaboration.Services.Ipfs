@@ -1,0 +1,21 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base",
+    ":preserveSemverRanges",
+    ":rebaseStalePrs",
+    ":semanticCommits",
+    ":semanticCommitTypeAll(chore)"
+  ],
+  "prConcurrentLimit": 3,
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["^Citrix.Microservices"],
+      "groupName": "Citrix.Microservices packages"
+    },
+    {
+      "matchPackagePatterns": ["^Citrix.ContentCollaboration.Libraries.FluentFlags"],
+      "groupName": "Citrix.ContentCollaboration.Libraries.FluentFlags packages"
+    }
+  ]
+}

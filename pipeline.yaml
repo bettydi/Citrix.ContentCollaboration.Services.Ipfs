@@ -1,0 +1,71 @@
+artifactory:
+  server: Mia-Artifactory
+version:
+  gitversion:
+    toolArgs: "/updateassemblyinfo"
+sonar:
+  projectKey: ipfs
+  projectName: ipfs
+  server: Mia-SonarQube
+  openCoverReportPath: tests/**/coverage.opencover.xml
+  sonarParameters:
+  - /d:sonar.exclusions="src/Ipfs/app/**,src/Ipfs/out/**"
+  baseBranches:
+  - master
+docker:
+  registry: ccc-local-docker.mia-repo.citrite.net
+  artifactoryRepo: ccc-local-docker
+  images:
+  - name: ipfs
+  branchTag: true
+  latestTag: master
+dotnet:
+  container: ci-local-docker.repo.citrite.net/dotnet-sonar:3.1-sdk
+  junit: tests/**/TestResults.xml
+  targets:
+  - cmd: build
+    options:
+      projectPath: Citrix.ContentCollaboration.Services.Ipfs.sln
+      output: app
+      configuration: Release
+  - cmd: test
+    options:
+      projectPath: tests/Ipfs.UnitTests/Ipfs.UnitTests.csproj
+      configuration: Debug
+      properties: "--logger \"junit;LogFileName=TestResults.xml\" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=coverage.opencover.xml /p:Include=\"[Ipfs]*\""
+  - cmd: publish
+    options:
+      projectPath: src/Ipfs/Citrix.ContentCollaboration.Services.Ipfs.csproj
+      output: src/Ipfs/out
+      configuration: Release
+      runtime: linux-x64
+      properties: "-p:PublishReadyToRun=true"
+snyk:
+  enableSnyk: true
+  exclude: "tests"
+xray:
+  branches:
+  - master
+cccZipPublish:
+  artifactoryRepo: ccc-local-generic
+  s3:
+    bucket: sf-ansible
+    credentials: ansible-s3-build
+    region: us-east-1
+  jenkinsArchive: true
+  zipContainer: zip
+  components:
+    - name: Citrix.ContentCollaboration.Services.Ipfs
+      zipSourcePath: src/Ipfs/out
+      serverRole: ipfs
+  branches:
+    - master
+    - release
+renovate:
+  enable: true
+  interval: weekly
+secretScan:
+  enable: true
+ossLicenseAnalysis:
+  enabled: true
+
