@@ -7,6 +7,8 @@ using Citrix.Microservices.Extensions.Logging.Product;
 using Citrix.Microservices.Microservice;
 using Citrix.Microservices.Microservice.ServiceLifetime;
 using Citrix.Microservices.RequestLogging;
+using Ipfs.CoreApi;
+using Ipfs.Http;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -25,7 +27,6 @@ namespace Ipfs
 
         protected override void ConfigureApplication(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory, IMicroserviceApplicationLifetime appLifetime)
         {
-            // coonfigure logging
             var loggerConfiguration = new CitrixLoggerBuilder()
                 .AddProductLogging(Configuration)
                 .AddRequestLogging(Configuration)
@@ -61,6 +62,11 @@ namespace Ipfs
         protected override void ConfigureApplicationServices(IServiceCollection services, IConfiguration configuration, EnvironmentInfo environmentInfo)
         {
             // Configure any additional services for Ipfs
+            services.AddLogging();
+            services.AddSingleton<IpfsClient>();
+            services.AddSingleton<IGenericApi>(x => x.GetRequiredService<IpfsClient>());
+            services.AddSingleton<ICoreApi>(x => x.GetRequiredService<IpfsClient>());
+
             base.ConfigureApplicationServices(services, configuration, environmentInfo);
         }
 
