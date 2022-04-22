@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
+using Citrix.ContentCollaboration.Services.Ipfs.Services;
 using Citrix.Microservices.Environment;
 using Citrix.Microservices.Extensions.HealthCheck;
 using Citrix.Microservices.Extensions.Logging;
@@ -66,6 +67,7 @@ namespace Ipfs
             services.AddSingleton<IpfsClient>();
             services.AddSingleton<IGenericApi>(x => x.GetRequiredService<IpfsClient>());
             services.AddSingleton<ICoreApi>(x => x.GetRequiredService<IpfsClient>());
+            services.AddSingleton<IIpfsService, IpfsService>();
 
             base.ConfigureApplicationServices(services, configuration, environmentInfo);
         }

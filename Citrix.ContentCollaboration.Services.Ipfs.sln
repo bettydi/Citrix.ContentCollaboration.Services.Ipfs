@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2006
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31229.75
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B55126CE-9614-4C27-8160-3F74094BC3C7}"
 EndProject
@@ -11,15 +11,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		GitVersion.yml = GitVersion.yml
 		Jenkinsfile = Jenkinsfile
 		pipeline.yaml = pipeline.yaml
+		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ipfs", "src\Ipfs\Citrix.ContentCollaboration.Services.Ipfs.csproj", "{9ECDD3F3-0B57-4AB4-B0B3-E9AFE0C1FD3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Citrix.ContentCollaboration.Services.Ipfs", "src\Ipfs\Citrix.ContentCollaboration.Services.Ipfs.csproj", "{DD9EA349-12C2-46E9-A648-7E897A9FA695}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E94938B8-04B4-42D4-A64B-7A7CFC2F1B7D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ipfs.IntegrationTests", "tests\Ipfs.IntegrationTests\Citrix.ContentCollaboration.Services.Ipfs.IntegrationTests.csproj", "{1F1563FE-5CE0-4802-9FF2-44C2F9945F4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Citrix.ContentCollaboration.Services.Ipfs.IntegrationTests", "tests\Ipfs.IntegrationTests\Citrix.ContentCollaboration.Services.Ipfs.IntegrationTests.csproj", "{0307FFAD-70AD-43DF-BF71-0CABA700A312}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ipfs.UnitTests", "tests\Ipfs.UnitTests\Citrix.ContentCollaboration.Services.Ipfs.UnitTests.csproj", "{EE939E62-7F9A-471F-90D6-082B577469C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Citrix.ContentCollaboration.Services.Ipfs.UnitTests", "tests\Ipfs.UnitTests\Citrix.ContentCollaboration.Services.Ipfs.UnitTests.csproj", "{D17BC4ED-03E2-43BB-9154-3D2248E744F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,26 +28,26 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9ECDD3F3-0B57-4AB4-B0B3-E9AFE0C1FD3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9ECDD3F3-0B57-4AB4-B0B3-E9AFE0C1FD3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9ECDD3F3-0B57-4AB4-B0B3-E9AFE0C1FD3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9ECDD3F3-0B57-4AB4-B0B3-E9AFE0C1FD3C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1F1563FE-5CE0-4802-9FF2-44C2F9945F4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1F1563FE-5CE0-4802-9FF2-44C2F9945F4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1F1563FE-5CE0-4802-9FF2-44C2F9945F4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1F1563FE-5CE0-4802-9FF2-44C2F9945F4A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EE939E62-7F9A-471F-90D6-082B577469C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EE939E62-7F9A-471F-90D6-082B577469C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EE939E62-7F9A-471F-90D6-082B577469C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EE939E62-7F9A-471F-90D6-082B577469C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD9EA349-12C2-46E9-A648-7E897A9FA695}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD9EA349-12C2-46E9-A648-7E897A9FA695}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD9EA349-12C2-46E9-A648-7E897A9FA695}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD9EA349-12C2-46E9-A648-7E897A9FA695}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0307FFAD-70AD-43DF-BF71-0CABA700A312}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0307FFAD-70AD-43DF-BF71-0CABA700A312}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0307FFAD-70AD-43DF-BF71-0CABA700A312}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0307FFAD-70AD-43DF-BF71-0CABA700A312}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D17BC4ED-03E2-43BB-9154-3D2248E744F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D17BC4ED-03E2-43BB-9154-3D2248E744F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D17BC4ED-03E2-43BB-9154-3D2248E744F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D17BC4ED-03E2-43BB-9154-3D2248E744F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{9ECDD3F3-0B57-4AB4-B0B3-E9AFE0C1FD3C} = {B55126CE-9614-4C27-8160-3F74094BC3C7}
-		{1F1563FE-5CE0-4802-9FF2-44C2F9945F4A} = {E94938B8-04B4-42D4-A64B-7A7CFC2F1B7D}
-		{EE939E62-7F9A-471F-90D6-082B577469C6} = {E94938B8-04B4-42D4-A64B-7A7CFC2F1B7D}
+		{DD9EA349-12C2-46E9-A648-7E897A9FA695} = {B55126CE-9614-4C27-8160-3F74094BC3C7}
+		{0307FFAD-70AD-43DF-BF71-0CABA700A312} = {E94938B8-04B4-42D4-A64B-7A7CFC2F1B7D}
+		{D17BC4ED-03E2-43BB-9154-3D2248E744F1} = {E94938B8-04B4-42D4-A64B-7A7CFC2F1B7D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4C895959-2153-4ED9-930B-CD9667243E75}
