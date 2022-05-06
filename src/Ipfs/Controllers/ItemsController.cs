@@ -9,24 +9,24 @@ using Swashbuckle.AspNetCore.Annotations;
 namespace Ipfs.Controllers
 {
     /// <summary>
-    /// Example Controller
+    /// Items Controller
     /// Provides basic guidelines for the Api/Controller Description.
     /// </summary>
     [Route("api/[controller]")]
     [Produces("application/json")]
-    public class ExampleController : Controller
+    public class ItemsController : Controller
     {
         private readonly ILogger _logger;
         private readonly IIpfsService _ipfsService;
 
-        public ExampleController(ILogger<ExampleController> logger, IIpfsService ipfsService)
+        public ItemsController(ILogger<ExampleController> logger, IIpfsService ipfsService)
         {
             _logger = logger;
             _ipfsService = ipfsService;
         }
 
         /// <summary>
-        /// Get Example Request
+        /// Get Cid by Item id
         /// </summary>
         [HttpGet]
         [ProducesResponseType((int)HttpStatusCode.OK)]
@@ -35,22 +35,22 @@ namespace Ipfs.Controllers
             OperationId = "My Operation Id 1",
             Summary = "Example Get Request",
             Description = "Example Get call request")]
-        public IActionResult Get()
+        public IActionResult GetCid()
         {
             _logger.LogDebug("Get");
             return Ok(new TestModel() { Name = "Test" });
         }
 
         /// <summary>
-        /// Get Example Request with Id
+        /// Get CID for Item with itemID
         /// </summary>
         /// <example>
-        /// GET: api/Example/8
+        /// GET: api/Items/8
         /// </example>
-        /// <param name="id">Id</param>
-        /// <response code="200">Returns the item</response>
+        /// <param name="itemId">itemId</param>
+        /// <response code="200">Returns the CID for item</response>
         /// <response code="404">If the item is null</response>
-        [HttpGet("{id}")]
+        [HttpGet("{itemId}/Cid")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(Citrix.Microservices.Models.Error), (int)HttpStatusCode.NotAcceptable)]
         [ProducesResponseType(typeof(Citrix.Microservices.Models.Error), (int)HttpStatusCode.NotFound)]
@@ -58,19 +58,36 @@ namespace Ipfs.Controllers
             OperationId = "My Operation Id 2",
             Summary = "Example Get Request with Id",
             Description = "Example Get call request")]
-        public async Task<IActionResult> Get(string id)
+        public async Task<IActionResult> GetCid(string itemId)
         {
+            // TODO: this would lookup CID by itemId
             // simple test to write a new file to IPFS
-            _logger.LogDebug("Get_id");
-            var result = await _ipfsService.Create(id);
+            _logger.LogDebug("GetCid_itemId");
+            var result = await _ipfsService.Create(itemId);
+
+            // TODO: CreatedResult - Created(201)
             return Ok(result);
+
+            // exaple response:
+            // ResponseWrapper
+            // {
+            // "payload": {
+            //   "itemId": "{id}",
+            //   "cid": "{cid}"
+            // },
+            // "isSuccessful": true,
+            // "code": {
+            //   "key": "Success",
+            //   "value": 100
+            // }
+            // }
         }
 
         /// <summary>
-        /// Post Example Request
+        /// Post Items Request
         /// </summary>
         /// <example>
-        /// POST: api/Example
+        /// POST: api/Items
         /// </example>
         /// <param name="value">value from body</param>
         [HttpPost]
@@ -79,35 +96,13 @@ namespace Ipfs.Controllers
         [ProducesResponseType((int)HttpStatusCode.Conflict)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         [SwaggerOperation(
-            OperationId = "My Operation Id 3",
-            Summary = "Example Post Request",
-            Description = "Example Post call request")]
-        public IActionResult Post([FromBody]TestModel value)
+            OperationId = "POST",
+            Summary = "Publish Item to IPFS",
+            Description = "Publish Item to IPFS and return the CID")]
+        public IActionResult Post([FromBody]IpfsModel value)
         {
             _logger.LogDebug("Post");
             return Created(Url.RouteUrl(1), 1);
-        }
-
-        /// <summary>
-        /// Delete Example Request
-        /// </summary>
-        /// <example>
-        /// DELETE: api/Example/5
-        /// </example>
-        /// <param name="id">Id</param>
-        [HttpDelete("{id}")]
-        [ProducesResponseType((int)HttpStatusCode.OK)]
-        [ProducesResponseType((int)HttpStatusCode.Conflict)]
-        [ProducesResponseType((int)HttpStatusCode.NotFound)]
-        [ProducesResponseType((int)HttpStatusCode.NoContent)]
-        [SwaggerOperation(
-            OperationId = "My Operation Id 4",
-            Summary = "Example Delete Request with Id",
-            Description = "Example Delete call request")]
-        public IActionResult Delete(int id)
-        {
-            _logger.LogDebug("Delete_id");
-            return StatusCode((int)HttpStatusCode.NoContent);
         }
     }
 }

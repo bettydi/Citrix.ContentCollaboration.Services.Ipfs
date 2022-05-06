@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.Extensions.Logging;
 using Xunit;
+using Citrix.ContentCollaboration.Services.Ipfs.Services;
 
 namespace Ipfs.UnitTests
 {
@@ -24,7 +25,8 @@ namespace Ipfs.UnitTests
         {
             // Arrange
             var logger = A.Fake<ILogger<ExampleController>>();
-            var exampleController = new ExampleController(logger);
+            var ipfs = A.Fake<IIpfsService>();
+            var exampleController = new ExampleController(logger, ipfs);
 
             // Act
             var actionResult = exampleController.Get();
@@ -43,10 +45,11 @@ namespace Ipfs.UnitTests
         {
             // Arrange
             var logger = A.Fake<ILogger<ExampleController>>();
-            var exampleController = new ExampleController(logger);
+            var ipfs = A.Fake<IIpfsService>();
+            var exampleController = new ExampleController(logger, ipfs);
 
             // Act
-            var actionResult = exampleController.Get(1);
+            var actionResult = exampleController.Get("1");
 
             // Assert
             var result = actionResult.Result as OkObjectResult;
@@ -64,7 +67,8 @@ namespace Ipfs.UnitTests
             var urlHelper = A.Fake<IUrlHelper>();
             A.CallTo(() => urlHelper.RouteUrl(A<UrlRouteContext>.Ignored)).Returns("http://location/");
             var logger = A.Fake<ILogger<ExampleController>>();
-            var exampleController = new ExampleController(logger);
+            var ipfs = A.Fake<IIpfsService>();
+            var exampleController = new ExampleController(logger, ipfs);
             exampleController.Url = urlHelper;
             var model = new TestModel { Name = "Test " };
 
@@ -85,7 +89,8 @@ namespace Ipfs.UnitTests
         {
             // Arrange
             var logger = A.Fake<ILogger<ExampleController>>();
-            var exampleController = new ExampleController(logger);
+            var ipfs = A.Fake<IIpfsService>();
+            var exampleController = new ExampleController(logger, ipfs);
 
             // Act
             var actionResult = exampleController.Delete(1);

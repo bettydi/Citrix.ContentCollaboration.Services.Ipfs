@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Citrix.Microservices.AsyncProcessing" Version="3.1.280" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\src\Ipfs\Citrix.ContentCollaboration.Services.Ipfs.csproj" />
   </ItemGroup>
   

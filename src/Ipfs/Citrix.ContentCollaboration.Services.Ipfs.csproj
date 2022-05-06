@@ -18,8 +18,9 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Citrix.Microservices.AsyncProcessing" Version="3.1.280" />
     <PackageReference Include="Citrix.Microservices.Microservice" Version="3.*" />
-    <PackageReference Include="Citrix.Microservices.Utilities" Version="3.1.279" />
+    <PackageReference Include="Citrix.Microservices.Utilities" Version="3.1.280" />
     <PackageReference Include="Ipfs.Http.Client" Version="0.33.0" />
   </ItemGroup>
 </Project>

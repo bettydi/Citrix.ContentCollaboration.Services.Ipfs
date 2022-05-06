@@ -1,0 +1,14 @@
+{
+  "ShareFileAccount": {
+    "Subdomain": "TBD",
+    "Username": "TBD",
+    "Password": "TBD"
+  },
+  "ShareFileClientSettings": {
+    "ApiUrl": "/sf/v3",
+    "TopLevelDomain": "sf-apitest.com",
+    "ClientId": "TBD",
+    "ClientSecret": "TBD",
+    "ApiRequestTimeOutInMilliSeconds": "10000"
+  }
+}

@@ -8,6 +8,7 @@ using Citrix.Microservices.Extensions.Logging.Product;
 using Citrix.Microservices.Microservice;
 using Citrix.Microservices.Microservice.ServiceLifetime;
 using Citrix.Microservices.RequestLogging;
+using Citrix.Microservices.AsyncProcessing.ShareFileApi;
 using Ipfs.CoreApi;
 using Ipfs.Http;
 using Microsoft.AspNetCore.Builder;
@@ -15,6 +16,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Citrix.Microservices.AsyncProcessing.AsyncServices;
+using Citrix.ContentCollaboration.Services.Ipfs.ConfigModels;
 
 namespace Ipfs
 {
@@ -68,6 +71,13 @@ namespace Ipfs
             services.AddSingleton<IGenericApi>(x => x.GetRequiredService<IpfsClient>());
             services.AddSingleton<ICoreApi>(x => x.GetRequiredService<IpfsClient>());
             services.AddSingleton<IIpfsService, IpfsService>();
+
+            // services.AddMemoryCache();
+            IConfigurationSection shareFileClientConfig = configuration.GetSection(AsyncServiceConfigurationConstants.Properties.ShareFileClientSettings);
+            services.Configure<InternalShareFileClientConfiguration>(shareFileClientConfig);
+            IConfigurationSection accountConfig = configuration.GetSection("ShareFileAccount");
+            services.Configure<AccountConfig>(accountConfig);
+            services.AddSingleton<IInternalShareFileClientFactory, InternalShareFileClientFactory>();
 
             base.ConfigureApplicationServices(services, configuration, environmentInfo);
         }
